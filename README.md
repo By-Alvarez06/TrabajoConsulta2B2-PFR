@@ -66,7 +66,19 @@ Los componentes centrales de JDBC son:
   - Necesita más código manual en comparación con Slick.
   - Menos abstracción para consultas SQL complejas.
 
+### Comparación: **Slick vs. Doobie**
 
+| **Característica**            | **Slick**                                               | **Doobie**                                             |
+|---------------------------    |---------------------------------------------------------|--------------------------------------------------------|
+| **Paradigma**                 | Mixto (declarativo y funcional)                         | Funcional puro                                         |
+| **Nivel de abstracción**      | Alto: DSL que abstrae las consultas SQL                 | Bajo: consultas SQL explícitas                         |
+| **Facilidad de uso**          | Más amigable para principiantes                         | Más adecuado para usuarios con experiencia funcional   |
+| **Control sobre JDBC**        | Limitado, abstrae detalles internos                     | Total control sobre JDBC y transacciones               |
+| **Tamaño del ecosistema**     | Mayor, con amplia integración con Play y Akka           | Más pequeño, pero con buena integración con Cats       |
+| **Gestión de consultas**      | Genera esquemas y consultas tipeadas automáticamente    | Consultas SQL escritas manualmente                     |
+| **Rendimiento**               | Ligeramente menos eficiente por la abstracción          | Muy eficiente al estar cerca del nivel de JDBC         |
+| **Documentación**             | Extensa y enfocada en ejemplos prácticos                | Completa pero orientada a usuarios funcionales         |
+| **Conexión a bases de datos** | Soporta múltiples bases de datos                        | Soporta múltiples bases de datos                       |
 
 # Bibliografía:
 
