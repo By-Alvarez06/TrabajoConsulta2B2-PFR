@@ -85,4 +85,7 @@ Los componentes centrales de JDBC son:
 1. insightsoftware. (n.d.). *What is JDBC?* Recuperado de [https://insightsoftware.com/es/blog/what-is-jdbc/](https://insightsoftware.com/es/blog/what-is-jdbc/)  
 2. Flanagan, M. (2005). *JDBC: Conexión entre Java y bases de datos.* Recuperado de [http://flanagan.ugr.es/docencia/2005-2006/2/servlets/jdbc.html](http://flanagan.ugr.es/docencia/2005-2006/2/servlets/jdbc.html)
 3. Alura. (n.d.). *Conociendo el JDBC.* Recuperado de [https://www.aluracursos.com/blog/conociendo-el-jdbc](https://www.aluracursos.com/blog/conociendo-el-jdbc)
-4. Code and Coke. (n.d.). *JDBC: Apuntes.* Recuperado de [https://datos.codeandcoke.com/apuntes:jdbc](https://datos.codeandcoke.com/apuntes:jdbc)  
+4. Code and Coke. (n.d.). *JDBC: Apuntes.* Recuperado de [https://datos.codeandcoke.com/apuntes:jdbc](https://datos.codeandcoke.com/apuntes:jdbc)
+5. SoftwareMill. (n.d.). *Comparing Scala relational database access libraries.* Recuperado de [https://softwaremill.com/comparing-scala-relational-database-access-libraries/](https://softwaremill.com/comparing-scala-relational-database-access-libraries/)
+6. Mustapha, M. (n.d.). *Relational DB with Scala and Slick.* Recuperado de [https://mustaphamichael.github.io/relational-db-with-scala-and-slick/](https://mustaphamichael.github.io/relational-db-with-scala-and-slick/)
+7. Rock the JVM. (n.d.). *Getting started with Scala Slick.* Recuperado de [https://rockthejvm.com/articles/getting-started-with-scala-slick](https://rockthejvm.com/articles/getting-started-with-scala-slick) 
