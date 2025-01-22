@@ -36,6 +36,36 @@ Los componentes centrales de JDBC son:
    - Statement/PreparedStatement: Ejecutan consultas SQL  
    - ResultSet: Almacena y procesa los resultados de una consulta
 
+## Librerías de Scala que permitan conectarse a una base de datos relacional
+### Slick
+
+**Slick** (Scala Language Integrated Connection Kit) es una biblioteca funcional para acceder a bases de datos relacionales desde Scala. Se destaca por su enfoque tipo seguro, que reduce significativamente la posibilidad de errores comunes en el acceso a datos. Además, ofrece una API intuitiva para definir esquemas de bases de datos, realizar consultas complejas y ejecutar acciones de forma segura.
+
+**Características principales:**
+
+- **Tipo seguro:** Garantiza la integridad de los datos al compilar tiempo.
+- **Funcional:** Utiliza un estilo funcional para definir consultas y acciones, lo que facilita la composición y la legibilidad del código.
+- **Query DSL:** Proporciona un lenguaje específico para consultas (DSL) que permite escribir consultas de forma concisa y expresiva.
+- **Soporte para múltiples bases de datos:** Funciona con una amplia variedad de bases de datos, incluyendo MySQL, PostgreSQL, SQL Server y más.
+- **Integración con el ecosistema Scala:** Se integra fácilmente con otros componentes del ecosistema Scala, como el framework web Play Framework.
+
+### Doobie
+**Doobie** es una librería pura de Scala para trabajar con bases de datos JDBC, orientada a la funcionalidad y la seguridad en tiempo de compilación.  
+
+**Características principales:**  
+  - Trabaja directamente con JDBC, proporcionando control explícito sobre las conexiones y transacciones.
+  - Totalmente funcional, con soporte para efectos y manejo de errores en tiempo de compilación.
+  - Se integra bien con librerías funcionales como Cats y Cats Effect.
+
+**Ventajas:**  
+  - Diseño puro y funcional, ideal para proyectos funcionales.
+  - Más control sobre las operaciones JDBC.
+  - Fácil integración con herramientas de manejo de efectos.
+
+**Desventajas:**  
+  - Necesita más código manual en comparación con Slick.
+  - Menos abstracción para consultas SQL complejas.
+
 
 
 # Bibliografía:
