@@ -80,6 +80,111 @@ Los componentes centrales de JDBC son:
 | **Documentación**             | Extensa y enfocada en ejemplos prácticos                | Completa pero orientada a usuarios funcionales         |
 | **Conexión a bases de datos** | Soporta múltiples bases de datos                        | Soporta múltiples bases de datos                       |
 
+
+## Cómo establecer una conexión a una base de datos relacional (mysql)
+### Genere una base de datos en mysql
+
+```mysql
+-- Crear la base de datos
+CREATE DATABASE testdb;
+
+-- Usar la base de datos
+USE testdb;
+
+-- Crear una tabla con datos de prueba
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(100),
+    salary DECIMAL(10, 2)
+);
+
+-- Insertar datos de prueba
+INSERT INTO employees (name, position, salary)
+VALUES
+    ('John Doe', 'Software Engineer', 75000.00),
+    ('Jane Smith', 'Project Manager', 85000.00),
+    ('Sam Wilson', 'Data Analyst', 65000.00);
+```
+
+### Genere una tabla con datos de prueba
+![image](https://github.com/user-attachments/assets/c1671e8c-79b1-4fea-a387-3547b55ac755)
+
+### Desde Scala establezca la conexión a la base datos
+Ajustes necesarios para el *sbt* para el correcto funcionamiento del proyecto
+
+```scala
+ThisBuild / version := "0.1.0-SNAPSHOT"
+
+ThisBuild / scalaVersion := "2.13.12"
+
+lazy val root = (project in file("."))
+  .settings(
+    name := "untitled",
+    libraryDependencies ++= Seq(
+      "mysql" % "mysql-connector-java" % "8.0.32" // Version de Conector SQL
+    )
+  )
+
+```
+
+Codigo utilizado para la consulta de datos desde SQL en Scala:
+
+```scala
+import java.sql.{Connection, DriverManager, ResultSet}
+
+object MySQLConnectionExample {
+
+  def main(args: Array[String]): Unit = {
+    // Configuración de la conexión
+    val url = "jdbc:mysql://localhost:3306/testdb?useSSL=false"
+    val username = "root" // Cambia esto si tu usuario no es 'root'
+    val password = "utpl" // Cambia esto a la contraseña de tu usuario
+
+    // Variables para la conexión y recursos
+    var connection: Connection = null
+
+    try {
+      // Cargar el driver MySQL (opcional en versiones modernas)
+      Class.forName("com.mysql.cj.jdbc.Driver")
+
+      // Establecer la conexión
+      connection = DriverManager.getConnection(url, username, password)
+      println("Conexión exitosa a la base de datos.")
+
+      // Crear un Statement
+      val statement = connection.createStatement()
+
+      // Consulta de todos los datos en la tabla 'employees'
+      val query = "SELECT * FROM employees"
+      val resultSet: ResultSet = statement.executeQuery(query)
+
+      // Procesar y mostrar los resultados
+      println("ID | Name          | Position          | Salary")
+      println("-----------------------------------------------")
+      while (resultSet.next()) {
+        val id = resultSet.getInt("id")
+        val name = resultSet.getString("name")
+        val position = resultSet.getString("position")
+        val salary = resultSet.getBigDecimal("salary")
+        println(s"$id  | $name | $position | $salary")
+      }
+
+    } catch {
+      case e: Exception =>
+        e.printStackTrace() // Manejo de errores
+    } finally {
+      // Cerrar la conexión
+      if (connection != null) {
+        connection.close()
+        println("Conexión cerrada.")
+      }
+    }
+  }
+}
+```
+
+
 # Bibliografía:
 
 1. insightsoftware. (n.d.). *What is JDBC?* Recuperado de [https://insightsoftware.com/es/blog/what-is-jdbc/](https://insightsoftware.com/es/blog/what-is-jdbc/)  
