@@ -137,9 +137,10 @@ object MySQLConnectionExample {
 
   def main(args: Array[String]): Unit = {
     // Configuración de la conexión
+    // estructura del url: jdbc:mysql://<host>:<port>/<nombre del database>?<parameters>
     val url = "jdbc:mysql://localhost:3306/testdb?useSSL=false"
-    val username = "root" // Cambia esto si tu usuario no es 'root'
-    val password = "utpl" // Cambia esto a la contraseña de tu usuario
+    val username = "root" // Cambia seegun el usuario ('root')
+    val password = "utpl" // Cambia esto segun la contraseña de la conexion
 
     // Variables para la conexión y recursos
     var connection: Connection = null
@@ -183,6 +184,10 @@ object MySQLConnectionExample {
   }
 }
 ```
+
+### Muestra de la consulta de la tabla usada de prueba en Scala
+
+![image](https://github.com/user-attachments/assets/2c2007da-f131-4a4f-bb62-83e2cb7d20dd)
 
 
 # Bibliografía:
